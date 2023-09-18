@@ -1,0 +1,18 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<h2>{{country.name}}</h2>
+
+    {% for city in cities %}
+        <ul>
+            <li>{{city.city_name}}</li>
+        </ul>
+    {% endfor %}
+
+<form action="/countries/{{country.id}}/new" method="POST">
+    <label for="city_name">City</label>
+    <input type="text" name="city_name" id="city_name"/>       
+    <input type="submit" value="Add City">
+</form>
+
+{% endblock %}

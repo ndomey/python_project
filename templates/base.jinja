@@ -1,9 +1,17 @@
 <html>
     <head>
-    <body>
-        {% for country in countries %}
-            {{country.name}}
-        {% endfor %}
-    </body>
+        <title>My Travels</title>
+        <a href="/">Home</a>
+        <a href="/countries">Bucket List</a>
+        {# <form action="/">                                        #search bar function, needs attention
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Submit</button> #}
     </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+    <footer>
+    
+    </footer>
 </html>

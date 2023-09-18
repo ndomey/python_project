@@ -14,7 +14,3 @@ migrate = Migrate(app, db)
 from controllers.city_controller import city_blueprint
 
 app.register_blueprint(city_blueprint)
-
-@app.route("/")
-def home():
-  return "This is the home page!"

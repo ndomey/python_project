@@ -1,0 +1,22 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<nav>
+    <ul>
+        {% for country in countries %}
+
+            <li><a href="/countries/{{country.id}}">{{country.name}}</a></li>
+            <form action="/countries/{{country.id}}/delete" method="POST">
+            <input class="btn btn--danger" type="submit" value="delete" />
+            </form>
+            
+        {% endfor %}
+    </ul>
+</nav>
+
+<form action="/countries/new" method="POST">
+    <label for="name">Country</label>
+    <input type="text" name="name" id="name"/>       
+    <input type="submit" value="Add Country">
+</form>
+{% endblock %}
