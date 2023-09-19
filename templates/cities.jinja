@@ -5,8 +5,18 @@
 
     {% for city in cities %}
         <ul>
-            <li>{{city.city_name}}</li>
+            <li><a href="/countries/{{country.id}}/{{city.city_name}}"></a>{{city.city_name}}</a>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <form action="/countries/{{country.id}}/{{city.city_name}}/delete" method="POST">
+            <input class="btn btn--danger" type="submit" value="delete" />
+            </form>
         </ul>
+        
+
     {% endfor %}
 
 <form action="/countries/{{country.id}}/new" method="POST">

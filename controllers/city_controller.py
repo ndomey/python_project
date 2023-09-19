@@ -43,11 +43,18 @@ def add_city(id):
     city = City(city_name=city_name, country_id=country_id)
     db.session.add(city)
     db.session.commit()
-    return redirect("/countries/<id>")
+    return redirect("/countries/" + id)
 
 
 @city_blueprint.route("/countries/<id>/delete", methods=["POST"])
 def delete_country(id):
     Country.query.filter_by(id = id).delete()
     db.session.commit()
-    return redirect('/country')
+    return redirect('/countries')
+
+
+@city_blueprint.route("/countries/<id>/<city_name>/delete", methods=["POST"])
+def delete_city(id, city_name):
+    City.query.filter_by(country_id = id, city_name=city_name).delete()
+    db.session.commit()
+    return redirect("/countries/" + id)
