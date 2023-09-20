@@ -6,17 +6,19 @@
         {% for country in countries %}
             <div class="something">
             {# <img src="https://shorturl.at/nsGY6" alt="town in Iceland"> #}
-                <li><a href="/countries/{{country.id}}">{{country.name}}</a></li>
+                <li class="listofcountries"><a href="/countries/{{country.id}}">{{country.name}}</a></li>
                 <form action="/countries/{{country.id}}/delete" method="POST">
-                <input class="btn btn--danger" type="submit" value="delete" />
+                <input class="buttons" type="submit" value="delete" />
                 </form>
             </div>
         {% endfor %}
     </nav>
+    <center>
     <form action="/countries/new" method="POST">
         <label for="name"></label>
         <input type="text" name="name" id="name"/>       
-        <input type="submit" value="Add Country">
+        <input class="buttons" type="submit" value="Add Country">
     </form>
+    </center>
 </div>
 {% endblock %}

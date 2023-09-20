@@ -1,3 +1,22 @@
+.headclass {
+  display: grid;
+  grid-template-columns: repeat(5, 5fr);
+  /* grid-template-rows: 100px 100px; */
+  grid-template-areas:
+    "a b c d e"
+}
+
+
+.item1 {
+  grid-area: a;
+}
+
+
+.item3 {
+  grid-area: e;
+}
+
+
 body {
     font-family: sans-serif;
     background: url("DSCF5274.JPG");
@@ -7,16 +26,27 @@ body {
 }
 
 
-button {
+h2 {
+  text-align: center;
+}
+
+
+.buttons {
+  border-radius: 12px;
+  
+}
+
+
+.button1 {
   width: 350px;
   height: 120px;
   opacity: 0.6;
   font-size: x-large;
   background-color: beige;
-  border: 0mm;
+  border: none;
   position: bottom;
+  border-radius: 12px;
 }
-
 
 button:hover {
   transform: scale(1.2);
@@ -39,9 +69,9 @@ button:hover {
 }
 
 
-li {
+.listofcountries {
   background-color: whitesmoke;            
-  /* background: url("IMG_1770.jpg"); */
+  background: url("doodleart.jpg");
   background-repeat: no-repeat;
   background-size: cover;              
   width: 200px;
@@ -52,11 +82,28 @@ li {
   vertical-align: top;
   margin: 5px;
   zoom: 1;
-  /* display: inline; */
   _height: 250px;
   text-align: center;
-  opacity: 0.6;
-  
+  opacity: 0.9;
+}
+
+
+.listofcities {
+  background-color: whitesmoke;            
+  background: url("city2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;              
+  width: 200px;
+  min-height: 250px;
+  border: 1px solid #000;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px;
+  zoom: 1;
+  _height: 250px;
+  text-align: center;
+  opacity: 0.9;
 }
 
 

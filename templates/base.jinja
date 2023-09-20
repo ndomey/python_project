@@ -1,19 +1,19 @@
 <html>
-    <head class="headclass">
+    <head>
+    <header class="headclass">
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <title>My Travels</title>
-        <a href="/">Home</a>
-        <a href="/countries">Bucket List</a>
-        {# <form action="/">                                        
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit">Submit</button> #}
+        <div class="item1"><a href="/">Home</a>
+            <a href="/countries">My List</a></div>
+        {# <form action="/">                                         #}
+        <div class="item3"><input type="text" placeholder="Search.." name="search">
+        <button class="buttons" type="submit">Submit</button></div>
+    </header>
     </head>
-    {# <div class="body"> #}
         <body>
             {% block content %}
             {% endblock %}
         </body>
-    {# </div> #}
     <footer>
     </footer>
 </html>
