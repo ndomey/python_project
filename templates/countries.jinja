@@ -5,7 +5,11 @@
     <ul>
         {% for country in countries %}
 
-            <li><a href="/countries/{{country.id}}">{{country.name}}</a></li>
+            <li><a href="/countries/{{country.id}}">{{country.name}}
+            {# {% if city.visited %}
+            <span> &#9989;</span>
+            {% endif %} #}
+            </a></li>
             <form action="/countries/{{country.id}}/delete" method="POST">
             <input class="btn btn--danger" type="submit" value="delete" />
             </form>
@@ -15,7 +19,7 @@
 </nav>
 
 <form action="/countries/new" method="POST">
-    <label for="name">Country</label>
+    <label for="name"></label>
     <input type="text" name="name" id="name"/>       
     <input type="submit" value="Add Country">
 </form>

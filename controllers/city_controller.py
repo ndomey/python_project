@@ -48,9 +48,20 @@ def add_city(id):
 
 @city_blueprint.route("/countries/<id>/delete", methods=["POST"])
 def delete_country(id):
-    Country.query.filter_by(id = id).delete()
-    db.session.commit()
-    return redirect('/countries')
+    if City.query.filter_by(country_id = id).first():
+        return render_template("error.jinja")
+    else:
+        Country.query.filter_by(id = id).delete()
+        db.session.commit()
+        return redirect('/countries')
+
+# @city_blueprint.route("/countries/<id>/delete", methods=["POST"])    #use this at your own risk
+# def delete_country(id):
+#     country = Country.query.filter_by(id = id).first()
+#     City.query.filter_by(country_id = id).delete()
+#     db.session.delete(country)
+#     db.session.commit()
+#     return redirect('/countries')
 
 
 @city_blueprint.route("/countries/<id>/<city_name>/delete", methods=["POST"])

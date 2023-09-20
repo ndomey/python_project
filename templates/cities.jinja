@@ -6,6 +6,9 @@
     {% for city in cities %}
         <ul>
             <li><a href="/countries/{{country.id}}/{{city.city_name}}"></a>{{city.city_name}}</a>
+            {% if city.visited %}
+            <span> &#9989;</span>
+            {% endif %}
                 <label class="switch">
                     <input type="checkbox">
                     <span class="slider"></span>
@@ -20,7 +23,7 @@
     {% endfor %}
 
 <form action="/countries/{{country.id}}/new" method="POST">
-    <label for="city_name">City</label>
+    <label for="city_name"></label>
     <input type="text" name="city_name" id="city_name"/>       
     <input type="submit" value="Add City">
 </form>

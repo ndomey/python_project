@@ -7,5 +7,6 @@ class Country(db.Model):
     name = db.Column(db.String(64))
     # language = db.Column(db.String(64))
     cities = db.relationship("City", backref="country")
+
     def __repr__(self):
         return f"<Country {self.id}: {self.name}>"
