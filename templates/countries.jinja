@@ -1,23 +1,22 @@
 {% extends "base.jinja" %}
 
 {% block content %}
-<nav>
-    <ul>
+<div class="body">
+    <nav class="countries_nav">
         {% for country in countries %}
-
-            <li><a href="/countries/{{country.id}}">{{country.name}}
-            </a></li>
-            <form action="/countries/{{country.id}}/delete" method="POST">
-            <input class="btn btn--danger" type="submit" value="delete" />
-            </form>
-            
+            <div class="something">
+            {# <img src="https://shorturl.at/nsGY6" alt="town in Iceland"> #}
+                <li><a href="/countries/{{country.id}}">{{country.name}}</a></li>
+                <form action="/countries/{{country.id}}/delete" method="POST">
+                <input class="btn btn--danger" type="submit" value="delete" />
+                </form>
+            </div>
         {% endfor %}
-    </ul>
-</nav>
-
-<form action="/countries/new" method="POST">
-    <label for="name"></label>
-    <input type="text" name="name" id="name"/>       
-    <input type="submit" value="Add Country">
-</form>
+    </nav>
+    <form action="/countries/new" method="POST">
+        <label for="name"></label>
+        <input type="text" name="name" id="name"/>       
+        <input type="submit" value="Add Country">
+    </form>
+</div>
 {% endblock %}

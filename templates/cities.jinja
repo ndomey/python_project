@@ -1,16 +1,15 @@
 {% extends "base.jinja" %}
-
 {% block content %}
 <h2>{{country.name}}</h2>
-
-    {% for city in cities %}
-        <ul>
-            <li><a href="/countries/{{country.id}}/{{city.city_name}}"></a>{{city.city_name}}</a>
-            {% if city.visited %}
-            <span> &#9989;</span>
-            {% endif %}
-            <form action="/countries/{{country.id}}/{{city.id}}/update" method="POST">
-                <label for="checked-out">
+    <nav class="cities_nav">
+        {% for city in cities %}
+            <section>
+                <li><a href="/countries/{{country.id}}/{{city.city_name}}"></a>{{city.city_name}}</a>
+                {% if city.visited %}
+                <span> &#9989;</span>
+                {% endif %}
+                <form action="/countries/{{country.id}}/{{city.id}}/update" method="POST">
+                    <label for="checked-out">
                     <span>Visited</span>
                     <input 
                         type="checkbox" 
@@ -18,23 +17,19 @@
                         name="checked_out" 
                         value="true"
                     >
-                </label>
-
-                <input type="submit" value="Update">
-            </form>
-            </li>
-            <form action="/countries/{{country.id}}/{{city.city_name}}/delete" method="POST">
-            <input class="btn btn--danger" type="submit" value="delete" />
-            </form>
-        </ul>
-        
-
-    {% endfor %}
-
+                    </label>
+                    <input type="submit" value="Update">
+                </form>
+                </li>
+                <form action="/countries/{{country.id}}/{{city.city_name}}/delete" method="POST">
+                <input class="btn btn--danger" type="submit" value="delete" />
+                </form>
+            </section>
+        {% endfor %}
+    </nav>
 <form action="/countries/{{country.id}}/new" method="POST">
     <label for="city_name"></label>
     <input type="text" name="city_name" id="city_name"/>       
     <input type="submit" value="Add City">
 </form>
-
 {% endblock %}

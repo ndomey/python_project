@@ -1,18 +1,19 @@
 <html>
-    <head>
+    <head class="headclass">
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <title>My Travels</title>
         <a href="/">Home</a>
         <a href="/countries">Bucket List</a>
-        {# <form action="/">                                        #search bar function, needs attention
+        {# <form action="/">                                        
         <input type="text" placeholder="Search.." name="search">
         <button type="submit">Submit</button> #}
     </head>
-    <body>
-        {% block content %}
-        {% endblock %}
-    </body>
+    {# <div class="body"> #}
+        <body>
+            {% block content %}
+            {% endblock %}
+        </body>
+    {# </div> #}
     <footer>
-    
     </footer>
 </html>

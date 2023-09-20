@@ -1,8 +1,11 @@
 {% extends "base.jinja" %}
 
 {% block content %}
-
-<p>First, you will need to delete the cities within this country!</p>
+<div class="error">
+<section>
+<b>HTTP ERROR 400</b>
+<p><b>First, you will need to delete the cities within this country!</b></p>
 <button><a href="/countries">Return</a></button>
-
+</section>
+</div>
 {% endblock %}

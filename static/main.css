@@ -1,11 +1,11 @@
 body {
     font-family: sans-serif;
     background: url("DSCF5274.JPG");
-    background-repeat: no-repeat;
+     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    /* background-attachment: fixed; */
+    height: 100vh; 
 }
+
 
 button {
   width: 350px;
@@ -14,9 +14,57 @@ button {
   font-size: x-large;
   background-color: beige;
   border: 0mm;
-
+  position: bottom;
 }
+
 
 button:hover {
   transform: scale(1.2);
+}
+
+
+.countries_nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 150px 150px;
+}
+
+
+.cities_nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 150px 150px;
+}
+
+
+li {
+  background-color: whitesmoke;            
+  /* background: url("IMG_1770.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;              
+  width: 200px;
+  min-height: 250px;
+  border: 1px solid #000;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px;
+  zoom: 1;
+  /* display: inline; */
+  _height: 250px;
+  text-align: center;
+  opacity: 0.6;
+  
+}
+
+
+.error {
+  color: red;
+  font-size: x-large;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
