@@ -69,3 +69,16 @@ def delete_city(id, city_name):
     City.query.filter_by(country_id = id, city_name=city_name).delete()
     db.session.commit()
     return redirect("/countries/" + id)
+
+
+@city_blueprint.route("/countries/<country_id>/<city_id>/update", methods=["POST"])
+def update_visited_status(country_id, city_id):
+    if "checked_out" in request.form:
+        city = City.query.get(city_id)
+        city.visited = True
+        db.session.commit()
+    else:
+        city = City.query.get(city_id)
+        city.visited = False
+        db.session.commit()
+    return redirect("/countries/" + country_id)

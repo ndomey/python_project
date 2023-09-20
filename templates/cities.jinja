@@ -9,10 +9,19 @@
             {% if city.visited %}
             <span> &#9989;</span>
             {% endif %}
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
+            <form action="/countries/{{country.id}}/{{city.id}}/update" method="POST">
+                <label for="checked-out">
+                    <span>Visited</span>
+                    <input 
+                        type="checkbox" 
+                        id="checked-out" 
+                        name="checked_out" 
+                        value="true"
+                    >
                 </label>
+
+                <input type="submit" value="Update">
+            </form>
             </li>
             <form action="/countries/{{country.id}}/{{city.city_name}}/delete" method="POST">
             <input class="btn btn--danger" type="submit" value="delete" />
