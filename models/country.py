@@ -1,5 +1,5 @@
 from app import db
-
+# remove comments 
 class Country(db.Model):
     __tablename__ = "countries"
 

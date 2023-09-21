@@ -3,6 +3,27 @@ from models.city import City
 from models.country import Country
 from app import db
 
+# you will want to split this file into two separate files, a 'city controller' and a 'country controller' 
+# This will help keep our code organised, the controller functions that handle requests about cities will live in the city controller, and the same for the countries. 
+
+# our routes are not restful here, to follow the restful convention we would need to have each resource using separate endpoints(url) and should follow a consistent and meaningful structure, for example
+
+#    - `GET /countries`: Retrieve a list of all countries.
+#    - `POST /countries`: Create a new country.
+#    - `GET /countries/{id}`: Retrieve a specific country by its ID.
+#    - `PUT /countries/{id}` or `PATCH /countries/{id}`: Update a specific country by its ID.
+#    - `DELETE /countries/{id}`: Delete a specific country by its ID.
+
+# In this example we are using all the HTTP verbs, which we don't have the ability to use without JavaScript, so can't be fully RESTful in how we structure our endpoints. 
+
+# In RESTful routing, resources represent entities or objects within your application, e.g the instances of our classes and the tables in our database. 
+
+# so for your app, endpoints(urls) to do with countries start with "/countries"
+
+# and endpoints(urls) to do with cities should start with "/cities"
+
+
+
 
 
 city_blueprint = Blueprint("countries", __name__)
@@ -64,6 +85,8 @@ def delete_country(id):
 #     return redirect('/countries')
 
 
+# what happens when we have two cities in the same country with the same name? 
+# as a rule of thumb we should not use non-unique things like names to delete from our database, we should only use things that are confirmed unique like our ID's  
 @city_blueprint.route("/countries/<id>/<city_name>/delete", methods=["POST"])
 def delete_city(id, city_name):
     City.query.filter_by(country_id = id, city_name=city_name).delete()
@@ -71,6 +94,7 @@ def delete_city(id, city_name):
     return redirect("/countries/" + id)
 
 
+# we don't need to send the country ID in our request here, it's uneeded, even if we want to redirect to that country ID we can use the city.country_id to do this. 
 @city_blueprint.route("/countries/<country_id>/<city_id>/update", methods=["POST"])
 def update_visited_status(country_id, city_id):
     if "checked_out" in request.form:
