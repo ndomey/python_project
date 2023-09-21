@@ -82,3 +82,7 @@ def update_visited_status(country_id, city_id):
         city.visited = False
         db.session.commit()
     return redirect("/countries/" + country_id)
+
+@city_blueprint.route("/search")
+def search():
+    return render_template("page_not_found.jinja")

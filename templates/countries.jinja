@@ -1,16 +1,13 @@
 {% extends "base.jinja" %}
-
 {% block content %}
-<div class="body">
     <nav class="countries_nav">
         {% for country in countries %}
-            <div class="something">
-            {# <img src="https://shorturl.at/nsGY6" alt="town in Iceland"> #}
+            <section>
                 <li class="listofcountries"><a href="/countries/{{country.id}}">{{country.name}}</a></li>
                 <form action="/countries/{{country.id}}/delete" method="POST">
                 <input class="buttons" type="submit" value="delete" />
                 </form>
-            </div>
+            </section>
         {% endfor %}
     </nav>
     <center>
@@ -20,5 +17,4 @@
         <input class="buttons" type="submit" value="Add Country">
     </form>
     </center>
-</div>
 {% endblock %}

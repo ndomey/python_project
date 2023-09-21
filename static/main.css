@@ -1,7 +1,6 @@
 .headclass {
   display: grid;
   grid-template-columns: repeat(5, 5fr);
-  /* grid-template-rows: 100px 100px; */
   grid-template-areas:
     "a b c d e"
 }
@@ -18,11 +17,18 @@
 
 
 body {
-    font-family: sans-serif;
+    font-family:cursive;
     background: url("DSCF5274.JPG");
-     background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
+    /* background-attachment: fixed; */
     height: 100vh; 
+}
+
+
+h1 {
+  text-align: center;
+  font-size:xx-large;
 }
 
 
@@ -33,7 +39,6 @@ h2 {
 
 .buttons {
   border-radius: 12px;
-  
 }
 
 
@@ -114,4 +119,18 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.error_msg {
+  font-size: 200%;
+}
+
+
+.search_page {            
+  background: url("404_page.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
 }
